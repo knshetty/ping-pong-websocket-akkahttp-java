@@ -1,0 +1,1 @@
+web: java -jar build/libs/ping-pong-websocket-akkahttp-java-all.jar -Dhttp.port=$PORT

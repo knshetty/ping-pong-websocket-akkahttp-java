@@ -1,6 +1,14 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'application'
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    id 'idea'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+}
 
 repositories {
     mavenCentral()
@@ -13,6 +21,11 @@ def versions = [
     ScalaBinary: "2.13"
 ]
 dependencies {
+    implementation "com.typesafe.akka:akka-http_${versions.ScalaBinary}:${versions.AkkaHttpVersion}"
+    implementation "com.typesafe.akka:akka-stream_${versions.ScalaBinary}:${versions.AkkaVersion}"
+    implementation "com.typesafe.akka:akka-http-jackson_${versions.ScalaBinary}:${versions.AkkaHttpVersion}"
+
+    /*
     implementation platform("com.typesafe.akka:akka-http-bom_${versions.ScalaBinary}:${versions.AkkaHttpVersion}")
 
     implementation "com.typesafe.akka:akka-http_${versions.ScalaBinary}"
@@ -20,13 +33,32 @@ dependencies {
     implementation "com.typesafe.akka:akka-actor-typed_${versions.ScalaBinary}:${versions.AkkaVersion}"
     implementation "com.typesafe.akka:akka-stream_${versions.ScalaBinary}:${versions.AkkaVersion}"
     implementation 'ch.qos.logback:logback-classic:1.2.3'
+     */
+
+    /*
     testImplementation "com.typesafe.akka:akka-http-testkit_${versions.ScalaBinary}"
     testImplementation "com.typesafe.akka:akka-actor-testkit-typed_${versions.ScalaBinary}:${versions.AkkaVersion}"
     testImplementation 'junit:junit:4.12'
+     */
 }
 
-mainClassName = "services.QuickstartApp"
+mainClassName = "services.websocket.WebsocketServerForEcho"
 
 run {
     standardInput = System.in
+}
+
+runShadow {
+    standardInput = System.in
+}
+
+task stage(dependsOn: ['build','shadowJar', 'clean', 'test'])
+build.mustRunAfter clean
+build.mustRunAfter test
+
+// https://github.com/akka/akka/issues/24248
+shadowJar {
+    append('reference.conf')
+    append('akka-http-version.conf')
+    append('version.conf')
 }
