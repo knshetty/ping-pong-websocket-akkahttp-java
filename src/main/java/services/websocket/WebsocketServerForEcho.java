@@ -80,8 +80,8 @@ public class WebsocketServerForEcho {
     // -----------------------------------------------------------------------------------------
     // Websocket Request Handling
     // -----------------------------------------------------------------------------------------
-    public static HttpResponse handleRequest(HttpRequest request) {
-
+    public static HttpResponse handleRequest(HttpRequest request)
+    {
         System.out.println("Handling request to " + request.getUri());
 
         if (request.getUri().path().equals("/echo"))
@@ -101,8 +101,10 @@ public class WebsocketServerForEcho {
     // -----------------------------------------------------------------------------------------
     public static void main(String[] args) throws Exception
     {
-
+        // BIND_ADDRESS to 0.0.0.0 (required by Heroku-App)
         final String BIND_ADDRESS = System.getenv("BIND_ADDRESS") != null ? System.getenv("BIND_ADDRESS") : "0.0.0.0";
+
+        // Obtain PORT, which is allocated for this endpoint by Heroku-App
         final int BIND_PORT = System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 8080;
 
         ActorSystem system = ActorSystem.create();
