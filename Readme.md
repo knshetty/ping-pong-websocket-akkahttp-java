@@ -32,20 +32,22 @@ Heroku Deployment
 - https://devcenter.heroku.com/articles/play-java-websockets-advanced
 - https://devcenter.heroku.com/articles/websocket-security
 
+------------
+
 # Guide: How this Akka-HTTP server project was bootstrapped
 
 ## Aim: Bootstrap a minimal akka-http project with below aspects in-mind
 
 - Java programming language
 - Gradle as a primary build-tool
--  Cloud deployment ready (i.e. a Heroku-App)
+- Cloud deployment ready (i.e. a Heroku-App)
 
 ## STEP 1. How to seed a starter project
 
-### Aim: (a ) Seeding starter project template from official quick-start project with the help of SBT(Simple Build Tool) repl and then (b) migrate to Intellij IDEA as the IDE
+### Aim: (a) Seeding a minimal starter project from official quick-start template using SBT(Simple Build Tool) repl and then (b) migrate to Intellij IDEA as the IDE
 
-**Note!** that the below link contains instructions on how to seed a basic starter project:
-`https://github.com/akka/akka-http-quickstart-java.g8`
+> **Note!** Here's are instructions on how to seed a basic starter project:
+> https://github.com/akka/akka-http-quickstart-java.g8
 
 Here's my journey to seed a minimal akka-http project:
 
@@ -55,17 +57,17 @@ Here's my journey to seed a minimal akka-http project:
 
 **ii. Now, this sbt project template will prompt for following parameters:**
 
-**Note!** Due to issues of mix java/scala fat-jar compilation with in the latest release of 10.2.x. Our preferred Akka-HTTP version is >> 10.1.x
+> **Note!** Due to issues of mix java/scala fat-jar compilation with in the latest release of 10.2.x. Our preferred Akka-HTTP version is 10.1.x
 
-**Note!** Akka HTTP 10.1.x is compatible with Akka 2.5 and any later 2.x versions released
+> **Note!** Akka HTTP 10.1.x is compatible with Akka 2.5 and any later 2.x versions released
 
-name:  “Your Preferred Poject Name ”
-akka-http-version:  10.1.13 (last release among 10.1.x)
-akka-version:  2.5.32 (last release among 2.5.x)
-organisation: org.your-company-name
-package: services
+- name:  “Your Preferred Poject Name ”
+- akka-http-version:  10.1.13 (last release among 10.1.x)
+- akka-version:  2.5.32 (last release among 2.5.x)
+- organisation: org.your-company-name
+- package: services
 
-**iii. Now, with the help of  Intellij IDEA, open the above created starter project as per instruction below:**
+**iii. Now, with the help of  Intellij IDEA, open the above created starter project as instructed below:**
 
 1. File > New > Project from Existing Sources… (And choose the project parent directory)
 2. Select >> Import project from external model
@@ -85,10 +87,13 @@ package: services
 `$ git init`
 
 **ii. Now, create '.gitignore' file with the content as seen in this project**
-**Note!** his file is located in the project's root directory
+
+> **Note!** this file is located in project's root directory
 
 **iii. Followed by these GIT commands:**
+
 `$ git add .`
+
 `$ git commit -m “Initial commit”`
 
 ## STEP 3. Make Heroku Ready
@@ -111,4 +116,5 @@ web: java -jar build/libs/your-project-name-all.jar -Dhttp.port=$PORT
 ```
 
 **ii. Now, amend the 'build.gradle' file with the content as seen in this project**
-**Note!** this file is located in the project's root directory
+
+> **Note!** this file is located in project's root directory
