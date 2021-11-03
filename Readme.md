@@ -10,7 +10,7 @@ This is an **echo** websocket service. Following technologies were used to bring
 `ws://localhost:8080/echo`
 
 ### Future (ToDo):
-- Provide TLS (Transport Layer Security) support i.e. wss://
+- Keep-alive support
 
 ## Useful references:
 Akka Documentation
