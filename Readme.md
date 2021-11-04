@@ -15,11 +15,11 @@ This is an **echo** websocket service. Following technologies were used to bring
 ## Useful references:
 Akka Documentation
 - https://developer.lightbend.com/guides/akka-http-quickstart-java/
-- https://doc.akka.io/docs/akka-http/current/server-side/websocket-support.html
+- https://doc.akka.io/docs/akka-http/10.1.13/server-side/websocket-support.html
 
 Examples
-- https://github.com/akka/akka-http/blob/v10.2.6/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java
-- https://github.com/akka/akka-http/blob/v10.2.6/docs/src/test/java/docs/http/javadsl/server/WebSocketRoutingExample.java
+- https://github.com/akka/akka-http/blob/v10.1.13/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java
+- https://github.com/akka/akka-http/blob/v10.1.13/docs/src/test/java/docs/http/javadsl/server/WebSocketRoutingExample.java
 - https://github.com/JakubDziworski/Akka-Streams-Websocket-Game-Server
 
 Heroku Deployment
