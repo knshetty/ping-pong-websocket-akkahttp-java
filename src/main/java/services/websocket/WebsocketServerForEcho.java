@@ -78,7 +78,7 @@ public class WebsocketServerForEcho {
     }
 
     // -----------------------------------------------------------------------------------------
-    // Websocket Request Handling
+    // Service Route: Websocket Request Handling
     // -----------------------------------------------------------------------------------------
     public static HttpResponse handleRequest(HttpRequest request)
     {
@@ -101,11 +101,16 @@ public class WebsocketServerForEcho {
     // -----------------------------------------------------------------------------------------
     public static void main(String[] args) throws Exception
     {
-        // BIND_ADDRESS to 0.0.0.0 (required by Heroku-App)
-        final String BIND_ADDRESS = System.getenv("BIND_ADDRESS") != null ? System.getenv("BIND_ADDRESS") : "0.0.0.0";
-
+        // -------------------------------------------------------------------------------------------------------------
+        // Cloud-Deployment: Heroku-App Requirements
+        // -------------------------------------------------------------------------------------------------------------
+        // BIND_ADDRESS to 0.0.0.0
+        final String BIND_ADDRESS =
+                System.getenv("BIND_ADDRESS") != null ? System.getenv("BIND_ADDRESS") : "0.0.0.0";
         // Obtain PORT, which is allocated for this endpoint by Heroku-App
-        final int BIND_PORT = System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 8080;
+        final int BIND_PORT =
+                System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 8080;
+        // -------------------------------------------------------------------------------------------------------------
 
         ActorSystem system = ActorSystem.create();
 
@@ -115,8 +120,9 @@ public class WebsocketServerForEcho {
 
             final Function<HttpRequest, HttpResponse> handler = request -> handleRequest(request);
             CompletionStage<ServerBinding> serverBindingFuture =
-                    Http.get(system).bindAndHandleSync(
-                            handler, ConnectHttp.toHost(BIND_ADDRESS, BIND_PORT), materializer);
+                    Http.get(system).bindAndHandleSync(handler,
+                                                       ConnectHttp.toHost(BIND_ADDRESS, BIND_PORT),
+                                                       materializer);
 
             // will throw if binding fails
             serverBindingFuture.toCompletableFuture().get(1, TimeUnit.SECONDS);
