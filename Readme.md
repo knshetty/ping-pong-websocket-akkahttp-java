@@ -46,7 +46,7 @@ Heroku Deployment
 
 ### Aim: (a) Seeding a minimal starter project from official quick-start template using SBT(Simple Build Tool) repl and then (b) migrate to Intellij IDEA as the IDE
 
-> **Note!** Here's are instructions on how to seed a basic starter project:
+> **Note!** Here's the instructions on how to seed a basic starter project:
 > https://github.com/akka/akka-http-quickstart-java.g8
 
 Here's my journey to seed a minimal akka-http project:
