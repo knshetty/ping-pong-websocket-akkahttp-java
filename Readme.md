@@ -13,16 +13,16 @@ This is an **echo** websocket service. Following technologies were used to bring
 - Keep-alive support
 
 ## Useful references:
-Akka Documentation
+**Akka Documentation**
 - https://developer.lightbend.com/guides/akka-http-quickstart-java/
 - https://doc.akka.io/docs/akka-http/10.1.13/server-side/websocket-support.html
 
-Examples
+**Examples**
 - https://github.com/akka/akka-http/blob/v10.1.13/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java
 - https://github.com/akka/akka-http/blob/v10.1.13/docs/src/test/java/docs/http/javadsl/server/WebSocketRoutingExample.java
 - https://github.com/JakubDziworski/Akka-Streams-Websocket-Game-Server
 
-Heroku Deployment
+**Heroku Deployment**
 - https://blog.rockthejvm.com/akka-http-to-heroku-in-x-minutes/
 - https://devcenter.heroku.com/articles/deploying-gradle-apps-on-heroku#the-procfile
 - https://github.com/heroku/gradle-getting-started
@@ -31,6 +31,20 @@ Heroku Deployment
 - https://devcenter.heroku.com/articles/websockets
 - https://devcenter.heroku.com/articles/play-java-websockets-advanced
 - https://devcenter.heroku.com/articles/websocket-security
+
+  Akka-HTTP projects
+  - https://github.com/denisecase/scala-big-data-topics
+  - https://github.com/RHDZMOTA/akka-http-hello-world
+  - https://github.com/flmendes/webwords
+
+  Offical Heroku Docs
+  - https://devcenter.heroku.com/articles/getting-started-with-java
+
+**Websocket Issues And Troubleshoot**
+  - Subscription & timeout >> https://github.com/akka/akka-http/issues/3039
+
+**Others**
+  - Inspirational Usecases of Akka-Http streams >> https://github.com/IBM/db2-event-store-akka-streams (Related Docs >> https://developer.ibm.com/patterns/store-retail-order-events-with-akka-streams-and-db2-event-store/)
 
 ------------
 
