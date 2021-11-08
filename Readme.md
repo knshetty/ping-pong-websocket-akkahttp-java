@@ -10,6 +10,8 @@ This is an **echo** websocket service. Following technologies were used to bring
 `ws://localhost:8080/echo`
 
 ### Future (ToDo):
+- ~~Deploy this websocket service on Heroku clould platform as a service(PaaS)~~
+- ~~Provide TLS (Transport Layer Security) support i.e. wss://~~
 - Keep-alive support
 
 ## Useful references:
